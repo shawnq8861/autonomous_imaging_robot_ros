@@ -1,0 +1,11 @@
+1. Create a file called "99-usbftdi.rules" in /etc/udev/rules.d/ with the following:
+
+	ATTRS{idVendor}=="0403", ATTRS{idProduct}=="0x601c", GROUP="dialout", MODE="666"
+	SUBSYSTEMS=="usb", ACTION=="add", MODE="0664", GROUP="usb"
+
+2. Run the following commands
+
+	sudo usermod -a -G usb roboarc
+	sudo usermod -a -G dialout roboarc
+
+

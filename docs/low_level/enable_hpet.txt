@@ -1,0 +1,7 @@
+The robot needs the use the HPET (high-precision event timer) in order to have accurate enough timeing for
+real-time control. The following steps will enable the HPET:
+
+1. sudo vim /etc/default/grub
+2. Add "GRUB_CMDLINE_LINUX_DEFAULT="clocksource=hpet" to the file
+3. sudo update-grub
+4. Restart for the changes to take effect

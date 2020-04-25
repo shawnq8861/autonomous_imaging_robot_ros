@@ -1,0 +1,5 @@
+The multimaster_fkie requires IPV4 multicast to be enabled in order to function properly. Here's how to do it:
+
+  1. sudo nano /etc/sysctl.conf
+  2. Add "net.ipv4.icmp_echo_ignore_broadcasts=0" to the end of the file, then save and exit
+  3. Execute a "sudo service procps restart" for the changes to immediatley take effect

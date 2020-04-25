@@ -1,0 +1,5 @@
+In order to uploaded images to buckets, the gatekeeper needs google-cloud-storage to be installed. Here's how to do it:
+
+  1. sudo pip install --upgrade google-cloud-storage
+  2. sudo pip install google-cloud
+  3. sudo pip install google-cloud-pubsub

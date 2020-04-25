@@ -1,0 +1,5 @@
+In order for the robot to store images, here is how to install PyMongp and MongoDB:
+
+    1. pip install pymongo
+    2. apt-get install mongodb-server
+    3. mkdir -p /data/db

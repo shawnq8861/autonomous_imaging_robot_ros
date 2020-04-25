@@ -1,0 +1,27 @@
+Instructions for installing the lumenera camera drivers.
+
+1. Download the tar file from the shared drive.
+
+iUNU Team Folder -> Engineering -> Robotics -> Lumenera -> lumenera_camera_sdk_linux_v2_3_for_x86_systems.tar
+
+2. Extract to ~/lumenera
+
+From the lumenera Readme file:
+
+Quick Start Guide
+-----------------
+1) Disconnect any Lumenera cameras. (Do not connect a Lumenera camera until later.)
+2) In a bash shell:
+      user@ubuntu:~$ sudo apt-get install linux-headers-$(uname -r)
+      user@ubuntu:~$ cd lumenera
+      user@ubuntu:~/lumenera$ sudo make
+      user@ubuntu:~/lumenera$ sudo make install
+      
+      Note:
+      It may be necessary to copy the header files from ~/lumenera/include to /usr/include/lumenera.
+      It may also be necessary to copy the shared library file from ~/lumenera/lib/x86-64 to /usr/lib.
+
+3) Plug a supported Lumenera camera into an appropriate USB port.
+4) Confirm installation:
+      user@ubuntu:~/lumenera$ cd examples/helloCamera
+      user@ubuntu:~/lumenera/examples/helloCamera$ ./helloCamera

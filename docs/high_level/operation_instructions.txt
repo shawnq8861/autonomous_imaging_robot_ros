@@ -1,0 +1,20 @@
+Startup: 
+
+    When the robot powers on, the control system will automatically start up as the service
+    "robobob_daemon". On power-up, the robot defaults to IDLE mode and won't attempt to execute
+    any command unless prompted by the user.
+
+Control:
+
+    Type the command "manual" in the terminal just as one would type "ls" or "mkdir". Using the
+    command prompt that appears, one can control the robot, or type "help" to learn how to use
+    the tool in an easy and intuitive way.
+
+Maintenence:
+
+    If the control systsem needs to be restarted for some reason, one can use the following
+    commands to stop and start the service respecftively:
+
+        sudo systemctl stop robobob_daemon
+        sudo systemctl start robobob_daemon
+    

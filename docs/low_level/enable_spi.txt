@@ -1,0 +1,5 @@
+1. wget https://wiki.up-community.org/images/9/94/Spi-enable.zip
+2. unzip Spi-enable.zip
+3. cd spi-enable/
+4. sudo ./install_hooks && sudo acpi-add spidev*
+5. Restart the UP2 board

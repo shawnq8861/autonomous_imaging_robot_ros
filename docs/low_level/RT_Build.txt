@@ -1,0 +1,51 @@
+/*******************************************************************
+** This is some simple instructions on building RT for up2 board  **
+** It will work with with 16.04, ubilinux and Debian.             **
+** This guide assumes that the upboard-hwe kernel for ubuntu is   **
+** Already Installed. See https://wiki.up-community.org/Ubuntu    **
+*******************************************************************/
+/*First update and get the build dependencies*/
+  sudo apt-get update
+  sudo apt-get install -y git build-essential kernel-package libncurses5-dev libssl-dev
+/*Create a repo directory and pull down the ubilinux kernel from Emutex*/
+  mkdir repo
+  cd repo
+  git clone --depth=1 https://github.com/emutex/ubilinux-kernel.git -b upboard-4.9 linux-upboard
+/*Now that we have the kernel we need to patch it with RT*/
+  cd linux-upboard
+  wget https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/4.9/older/patch-4.9.47-rt37.patch.xz
+  unxz -cd patch-4.9.47-rt37.patch.xz | patch -p1
+/*We have just patched the kernel with RT and need to generate a config and change some fields*/
+  make upboard_defconfig
+  xdg-open .config
+/*Now we are in the config for the kernel and will be setting som different fields.*/
+/*Search for these fields and set them appropriatley*/
+  CONFIG_HIGH_RES_TIMERS=y
+  CONFIG_PREEMPT_RT_FULL=y
+  CONFIG_HZ_1000=y
+  CONFIG_HZ=1000
+  CONFIG_OF=n
+  CONFIG_CPU_IDLE=n
+  CONFIG_INTEL_IDLE=n
+  CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE=y
+/*Now we need to compile the kernel*/
+  make -j`nproc` && make -j`nproc` bindeb-pkg
+/*go back a directory and check to make sure we have the correct packages*/
+  cd ..
+  ls
+/*Output*/
+  linux-4.9.45-rt57-upboard-rt+_4.9.45-rt57-upboard-rt+-3_amd64.changes
+  linux-firmware-image-4.9.45-rt57-upboard-rt+_4.9.45-rt57-upboard-rt+-3_amd64.deb
+  linux-headers-4.9.45-rt57-upboard-rt+_4.9.45-rt57-upboard-rt+-3_amd64.deb
+  linux-image-4.9.45-rt57-upboard-rt+_4.9.45-rt57-upboard-rt+-3_amd64.deb
+  linux-libc-dev_4.9.45-rt57-upboard-rt+-3_amd64.deb
+  linux-upboard
+/*We can now install the new packages*/
+  sudo dpkg -i linux-*.deb
+/*And we can purge the generic out*/
+  sudo apt-get autoremove --purge 'linux-.*generic'
+/*Now reboot the system and check to see if the RT was installed*/
+  sudo reboot
+  uname -a
+/*Output*/
+  Linux upsquared 4.9.45-rt57-upboard-rt+ #3 SMP PREEMPT RT Fri Sep 14 19:27:04 CEST 2018 x86_64 GNU/Linux

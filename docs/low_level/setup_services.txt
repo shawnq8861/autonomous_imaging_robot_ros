@@ -1,0 +1,13 @@
+First, copy the service files into the system with the following command:
+
+    sudo cp /home/catkin_ws/src/ros_robo_bob/system/robobob_daemon.service /etc/systemd/system/
+    sudo cp /home/catkin_ws/src/ros_robo_bob/system/mongodb.service /etc/systemd/system/
+
+Then, enable the services at boot with the following:
+
+    systemctl enable robobob_daemon
+    systemctl enable mongodb
+
+Add execution permissions to the daemon exec script
+
+    chmod u+x /home/catkin_ws/src/ros_robo_bob/scripts/robobobDaemon.sh
