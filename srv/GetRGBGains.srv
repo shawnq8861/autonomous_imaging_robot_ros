@@ -1,0 +1,8 @@
+# Request: no data to pass in
+
+---
+# Response: three floats to hold the gain values and one bob status
+float32 red
+float32 green
+float32 blue
+int8 status

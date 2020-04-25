@@ -1,0 +1,6 @@
+# Request: Bool to control motor power
+bool power
+---
+# Response: Returns state if the command was processed
+bool state
+int8 status

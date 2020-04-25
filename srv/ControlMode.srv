@@ -1,0 +1,7 @@
+# Request: The desired state of the control node (true for running, false for idle)
+string mode
+string planName
+
+---
+# Response: No valuable information to pass back to the client
+int8 status

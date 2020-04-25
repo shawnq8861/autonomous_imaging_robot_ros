@@ -1,0 +1,7 @@
+# no arguments passed to request
+
+---
+# response
+int8 result
+uint64 rfid_value
+bool found_charger

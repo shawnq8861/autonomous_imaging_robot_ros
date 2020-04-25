@@ -1,0 +1,6 @@
+# Request: A vector of floats commands for the supervisor to execute
+float32[3] angle
+---
+# Response: A vector of floats commands for the supervisor to execute
+float32[3] cameraAngle
+int8 status

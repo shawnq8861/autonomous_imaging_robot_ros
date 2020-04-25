@@ -1,0 +1,6 @@
+
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: A vector of string commands for the supervisor to execute
+int8 status

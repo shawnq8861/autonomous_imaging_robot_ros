@@ -1,0 +1,6 @@
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: An uint16 of battery status and bob status
+uint16 batteryStatus
+int8 status

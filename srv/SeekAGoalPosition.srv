@@ -1,0 +1,6 @@
+# new goal position request
+float32 goal_position
+---
+# response
+int8 result
+float32 position

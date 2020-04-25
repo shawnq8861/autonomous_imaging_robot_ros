@@ -1,0 +1,5 @@
+# Request: int16 to set current level in mA
+int16 current
+---
+# Response: Response of a bool if the current was updated and a bob status code
+int8 status

@@ -1,0 +1,8 @@
+# Request: Only requesting one thing, so no need for a request variable
+string name
+
+---
+# Response: The image bag to be returned
+sensor_msgs/Image image
+ros_robo_bob/ImageMeta metadata
+int8 status

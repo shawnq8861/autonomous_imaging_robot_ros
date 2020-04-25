@@ -1,0 +1,5 @@
+# Request: The desired state of the supervisor (true for running, false for idle)
+bool state
+
+---
+# Response: No valuable information to pass back to the client

@@ -1,0 +1,5 @@
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: A bool to initiate charging of the bob with a bob status code
+int8 status

@@ -1,0 +1,6 @@
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: A vector of uint16 OF individual cells and bob status 
+uint16[4] cellVoltage
+int8 status

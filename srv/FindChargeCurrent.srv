@@ -1,0 +1,6 @@
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: A bool to return if charge current was found as well as a bob status code
+bool current
+int8 status

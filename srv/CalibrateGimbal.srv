@@ -1,0 +1,5 @@
+# Request: No request needed
+
+---
+# Response: Returns state of the gimbal calibration process
+int8 status

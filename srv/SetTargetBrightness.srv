@@ -1,0 +1,7 @@
+# Request: int8 to set target brightness value, range 0-255
+int8 brightness
+
+---
+
+# Response: bool, a Bob Status code
+int8 status

@@ -1,0 +1,6 @@
+# Requ
+bool autoWB
+---
+# Response: a sensor_msg/image, and a bob status code
+sensor_msgs/Image image
+int8 status

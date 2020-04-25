@@ -1,0 +1,6 @@
+# Request: Only requesting one thing, so no need for a request variable
+
+---
+# Response: The position of the robot, and the status of the service call
+float32 position
+int8 status

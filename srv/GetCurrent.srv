@@ -1,0 +1,7 @@
+# Request: The sample size of the average to take
+int16 sampleSize
+
+---
+# Response: An uint16 of current level and bob status
+int16 current
+int8 status

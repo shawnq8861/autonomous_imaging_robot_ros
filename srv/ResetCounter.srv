@@ -1,0 +1,7 @@
+# request, nothing to pass in here
+
+---
+
+# response, true if successful, false if not
+
+bool reset
