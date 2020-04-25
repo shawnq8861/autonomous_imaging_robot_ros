@@ -1,0 +1,13 @@
+# Goal definition
+bool autoExposure
+float32 exposureComp
+bool autoWB
+---
+
+# Result definition: Status code of the aciton, and the image
+int8 status
+sensor_msgs/Image image
+
+---
+
+# No feedback message, current implementation by ROS is redundant

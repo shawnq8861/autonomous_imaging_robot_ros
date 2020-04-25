@@ -1,0 +1,10 @@
+# Goal definition: Only one goal so no field here
+
+---
+
+# Result definition: Status code of the aciton
+int8 status
+
+---
+
+# No feedback message, current implementation by ROS is redundant

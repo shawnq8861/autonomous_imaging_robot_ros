@@ -1,0 +1,12 @@
+# Goal definition: Desired X, Y, and Z euler angles for the camera
+float32[3] orientation
+---
+
+# Result definition: Status code of the action, and the actual orientation of the camera after the move
+int8 status
+float32[3] orientation
+
+---
+
+# No feedback message, current implementation by ROS is redundant
+

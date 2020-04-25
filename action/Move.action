@@ -1,0 +1,11 @@
+# Goal definition: Distance to travel
+float32 distance
+---
+
+# Result definition: Status code of the aciton, and the current position of the bob
+int8 status
+float32 position
+
+---
+
+# No feedback message, current implementation by ROS is redundant
