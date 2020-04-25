@@ -1,0 +1,12 @@
+[Unit]
+Description=iUNU RoboBOB software control system
+After=network.target softpwm halleffect
+
+[Service]
+Type=forking
+User=root
+ExecStart=/home/catkin_ws/src/ros_robo_bob/scripts/robobobDaemon.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
