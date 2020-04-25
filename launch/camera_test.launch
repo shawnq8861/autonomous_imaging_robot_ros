@@ -1,0 +1,10 @@
+<launch>
+
+    <!--
+        to be used for testing only the camera node.
+    -->
+
+        <node pkg="ros_robo_bob" name="lumenera_camera"  type="lum_camera"   cwd="node"  respawn="true"/>
+
+
+</launch>

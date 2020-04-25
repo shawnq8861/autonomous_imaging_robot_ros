@@ -1,0 +1,12 @@
+<launch>
+
+    <arg name="hostname"/>
+
+    <group ns="$(arg hostname)">
+
+        <!-- User control node -->
+        <node pkg="ros_robo_bob" name="user_control"             type="user_control" cwd="node"/>
+
+    </group>
+
+</launch>

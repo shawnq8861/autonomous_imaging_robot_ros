@@ -1,0 +1,45 @@
+<launch>
+
+    <!--
+        encoder, mh04, base_controller, and move_to_goal_position use SCHED_FIFO for
+        realtime scheduling, with encoder having the highest priority since it
+        uses interrupts. The remaining nodes have normal priority and use SCHED_RR.
+    -->
+
+    <arg name="hostname"/>
+
+    <group ns="$(arg hostname)">
+
+        <!-- Networking nodes
+        <node pkg="master_discovery_fkie"   name="master_discovery" type="master_discovery"     respawn="true">
+            <rosparam param="heartbeat_hz">1</rosparam>
+        </node>
+        <node pkg="master_sync_fkie"        name="master_sync"      type="master_sync"          respawn="true">
+            <rosparam param="sync_remote_nodes">True</rosparam>
+            <rosparam param="resync_on_reconnect">False</rosparam>
+        </node>-->
+
+        <!-- Sensor nodes -->
+        <node pkg="ros_robo_bob" name="ls7366"                  type="ls7366"                   respawn="true"/>
+        <node pkg="ros_robo_bob" name="odometry"                type="odometry"                 respawn="true"/>
+        <node pkg="ros_robo_bob" name="mfrc522"                 type="mfrc522"      cwd="node"  respawn="true"/>
+        <node pkg="ros_robo_bob" name="mh04"                    type="mh04"                     respawn="true"/>
+        <node pkg="ros_robo_bob" name="power_node"              type="power_node"               respawn="true"/>
+        <node pkg="ros_robo_bob" name="lumenera_camera"         type="lum_camera"   cwd="node"  respawn="true"/>
+
+        <!-- Control nodes -->
+        <node pkg="ros_robo_bob" name="base_controller"         type="base_controller"          respawn="true"/>
+        <node pkg="ros_robo_bob" name="motion"                  type="motion"                   respawn="true"/>
+        <node pkg="ros_robo_bob" name="action_server"           type="action_server"            respawn="true"/>
+        <node pkg="ros_robo_bob" name="gimbal"                  type="gimbal"                   respawn="true"/>
+
+        <!-- Data nodes -->
+        <node pkg="ros_robo_bob" name="uploader"                type="uploader.py"  cwd="node"  respawn="true"/>
+        <node pkg="ros_robo_bob" name="control"                 type="control"      cwd="node"  respawn="true"/>
+
+        <!-- Supervision nodes -->
+        <node pkg="ros_robo_bob" name="supervisor"             type="supervisor.py" cwd="node" respawn="true"/>
+
+    </group>
+
+</launch>

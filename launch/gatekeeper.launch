@@ -1,0 +1,24 @@
+<launch>
+
+    <!-- Customer arguments -->
+    <arg name="customer"/>
+    <arg name="facility"/>
+
+    <!-- Customer parameters -->
+    <param name="customer" value="$(arg customer)"/>
+    <param name="facility" value="$(arg facility)"/>
+
+    <!-- Networking and gatkeeper nodes -->
+    <node pkg="ros_robo_bob"            name="gatekeeper"         type="gatekeeper.py"    respawn="true" cwd="node" output="screen" />
+    <node pkg="master_discovery_fkie"   name="master_discovery"   type="master_discovery" respawn="true">
+        <rosparam param="remove_after">0</rosparam>
+        <rosparam param="heartbeat_hz">1</rosparam>
+        <rosparam param="timeout_factor">10</rosparam>
+        <rosparam param="measurement_intervals">1</rosparam>
+    </node>
+    <node pkg="master_sync_fkie"        name="master_sync"        type="master_sync"      respawn="true">
+        <rosparam param="sync_remote_nodes">True</rosparam>
+        <rosparam param="resync_on_reconnect">True</rosparam>
+    </node>
+
+</launch>
